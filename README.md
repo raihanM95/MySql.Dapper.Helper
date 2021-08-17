@@ -26,3 +26,34 @@ A high performance Helper supporting MySQL.
     * Install HelperMySql.Dapper
     
     <img src="documentations/documentation-1.png" alt="Screen"/>
+    
++ **Use**
+    * Insert
+    * Query like "INSERT INTO credentials (email,password,createdBy,created) VALUES (@Email,@Password,@CreatedBy,@Created)"
+    ```
+    await GenericRepository<entityName>.AddAsync("ConnectionString", "query", entityName);
+    ```
+    
+    * Select All
+    * Query like "SELECT * FROM credentials"
+    ```
+    await GenericRepository<entityName>.GetAllAsync("ConnectionString", "query");
+    ```
+    
+    * Select By Id
+    * Query like "SELECT * FROM credentials WHERE id = @Id"
+    ```
+    await GenericRepository<entityName>.GetByIdAsync("ConnectionString", "query", id);
+    ```
+    
+    * Update
+    * Query like "UPDATE credentials SET email = @Email, password = @Password, lastModifiedBy = @LastModifiedBy, lastModified = @LastModified WHERE id = @Id"
+    ```
+    await GenericRepository<entityName>.UpdateAsync("ConnectionString", "query", entityName);
+    ```
+    
+    * Delete
+    * Query like "DELETE FROM credentials WHERE id = @Id"
+    ```
+    await GenericRepository<entityName>.DeleteAsync("ConnectionString", "query", id);
+    ```
